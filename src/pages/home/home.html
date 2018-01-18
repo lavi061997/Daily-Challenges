@@ -1,14 +1,22 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title color='primary'>
+      Daily Challenges
     </ion-title>
+    <ion-buttons end>
+  <button ion-button icon-only (click)="addItem()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
+</ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="content" padding>
+
+  <h1 class = "challenge">Here's your Daily Challenge</h1>
+  <div class="today-challenge">
+    Talk to a stranger for atleast 5 mins.
+  </div>
+  <div class="nextItem">
+    <a href="#" class="biliboard"> Change Challenge </a>
+
+  </div>
 </ion-content>
