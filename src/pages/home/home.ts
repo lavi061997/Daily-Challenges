@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
 import { AddChallengePage } from '../add-challenge/add-challenge';
 @Component({
   selector: 'page-home',
@@ -7,23 +7,48 @@ import { AddChallengePage } from '../add-challenge/add-challenge';
 })
 export class HomePage {
 
-  public items;
-
-  constructor(public navCtrl: NavController) {
+  public items = [];
+  public currentItem;
+  public title;
+  public description;
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
 
   }
 
-  addItem(): void{
-      this.navCtrl.push(AddChallengePage);
-  }
+ addItem(){
+
+   let addModal = this.modalCtrl.create(AddChallengePage,{currentItem: this.currentItem});
+
+   addModal.onDidDismiss((item) => {
+
+         if(item){
+           this.saveItem(item);
+         }
+
+         this.challengeDone();
+   });
+
+   addModal.present();
+
+ }
+
 
   ionViewDidLoad(){
-    this.items = [
-      {title:'test',description:'lorem ipesm'}
-    ];
-
+    this.currentItem = {
+      title:'test',
+      description:'loren ipsem'
+    };
+    this.title = this.currentItem.title;
+    this.description = this.currentItem.description;
   }
 
+   saveItem(item){
+     this.items.push(item);
+   }
+   challengeDone(): void{
+     this.title = "Congrats you completed this challenge";
+     this.description = "Come back tomorrow for a new Challenge";
+   }
   viewItems(){
 
   }

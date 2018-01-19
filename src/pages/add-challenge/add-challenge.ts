@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
  * Generated class for the AddChallengePage page.
@@ -13,12 +13,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'add-challenge.html',
 })
 export class AddChallengePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  title: string;
+  description: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddChallengePage');
-  }
+    this.title = this.navParams.get('currentItem').title;
+    this.description = this.navParams.get('currentItem').description;
 
-}
+    }
+
+    saveItem(){
+
+      let newItem = {
+        title: this.title,
+        description: this.description
+      };
+
+      this.view.dismiss(newItem);
+
+    }
+
+    close(){
+      this.view.dismiss();
+    }
+
+  }
