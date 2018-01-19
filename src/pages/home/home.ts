@@ -46,7 +46,7 @@ export class HomePage {
      this.items.push(item);
    }
    challengeDone(): void{
-     this.title = "Congrats you completed this challenge";
+     this.title = "Congrats to you for completing this challenge";
      this.description = "Come back tomorrow for a new Challenge";
    }
   viewItems(){
