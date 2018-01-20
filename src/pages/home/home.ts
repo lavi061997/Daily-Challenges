@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
 import { AddChallengePage } from '../add-challenge/add-challenge';
+import { ViewChallengesPage } from '../view-challenges/view-challenges';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -49,7 +50,9 @@ export class HomePage {
      this.title = "Congrats to you for completing this challenge";
      this.description = "Come back tomorrow for a new Challenge";
    }
-  viewItems(){
-
+  viewChallenges(){
+    this.navCtrl.push(ViewChallengesPage, {
+      items:this.items
+    });
   }
 }

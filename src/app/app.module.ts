@@ -7,12 +7,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddChallengePage } from '../pages/add-challenge/add-challenge';
+import { ViewChallengesPage } from '../pages/view-challenges/view-challenges';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    AddChallengePage
+    AddChallengePage,
+    ViewChallengesPage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { AddChallengePage } from '../pages/add-challenge/add-challenge';
   entryComponents: [
     MyApp,
     HomePage,
-    AddChallengePage
+    AddChallengePage,
+    ViewChallengesPage
   ],
   providers: [
     StatusBar,
