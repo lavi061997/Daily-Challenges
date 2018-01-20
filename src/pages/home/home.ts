@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
 import { AddChallengePage } from '../add-challenge/add-challenge';
 import { ViewChallengesPage } from '../view-challenges/view-challenges';
+import { ChallengeServiceProvider } from '../../providers/challenge-service/challenge.service';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -12,7 +13,7 @@ export class HomePage {
   public currentItem;
   public title;
   public description;
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+  constructor(private challenge: ChallengeServiceProvider, public navCtrl: NavController, public modalCtrl: ModalController) {
 
   }
 
@@ -33,6 +34,9 @@ export class HomePage {
 
  }
 
+ getRandomChallenge():void{
+   this.challenge.mockGetChallenge(1).subscribe(data => console.log(data));
+ }
 
   ionViewDidLoad(){
     this.currentItem = {
@@ -41,6 +45,7 @@ export class HomePage {
     };
     this.title = this.currentItem.title;
     this.description = this.currentItem.description;
+    this.getRandomChallenge();
   }
 
    saveItem(item){

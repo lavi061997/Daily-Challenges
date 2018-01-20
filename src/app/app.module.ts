@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddChallengePage } from '../pages/add-challenge/add-challenge';
 import { ViewChallengesPage } from '../pages/view-challenges/view-challenges';
+import { ChallengeServiceProvider } from '../providers/challenge-service/challenge.service';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ViewChallengesPage } from '../pages/view-challenges/view-challenges';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ChallengeServiceProvider
   ]
 })
 export class AppModule {}
