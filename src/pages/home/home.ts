@@ -34,18 +34,22 @@ export class HomePage {
 
  }
 
- getRandomChallenge():void{
-   this.challenge.mockGetChallenge(1).subscribe(data => console.log(data));
+ getRandomChallenge():void {
+   this.challenge.mockGetChallenge(Math.floor(Math.random() * 2)).subscribe((data) => {
+    console.log(data);
+    this.title = data.title;
+    this.description = data.description;
+    console.log(this.title,this.description);
+   });
  }
 
-  ionViewDidLoad(){
+  ionViewDidLoad() {
     this.currentItem = {
       title:'test',
       description:'loren ipsem'
     };
     this.title = this.currentItem.title;
     this.description = this.currentItem.description;
-    this.getRandomChallenge();
   }
 
    saveItem(item){
@@ -55,7 +59,7 @@ export class HomePage {
      this.title = "Congrats to you for completing this challenge";
      this.description = "Come back tomorrow for a new Challenge";
    }
-  viewChallenges(){
+  viewChallenges() {
     this.navCtrl.push(ViewChallengesPage, {
       items:this.items
     });

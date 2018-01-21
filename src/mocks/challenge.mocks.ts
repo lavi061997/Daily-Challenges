@@ -1,4 +1,4 @@
-import { Challenge } from '..models/challenge.interface';
+import { Challenge } from '../models/challenge.interface';
 
 const challengeList: Challenge[] = [
   {

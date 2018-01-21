@@ -20,6 +20,6 @@ export class ChallengeServiceProvider {
   }
 
   mockGetChallenge(position: number): Observable<Challenge>{
-    return Observable.of(CHALLENGE_LIST.filter(challenge => challenge[position])[0]);
+    return Observable.of(CHALLENGE_LIST[position]);
   }
 }
