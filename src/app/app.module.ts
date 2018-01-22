@@ -10,7 +10,7 @@ import { AddChallengePage } from '../pages/add-challenge/add-challenge';
 import { ViewChallengesPage } from '../pages/view-challenges/view-challenges';
 import { ChallengeServiceProvider } from '../providers/challenge-service/challenge.service';
 import { DataProvider } from '../providers/data/data';
-
+import { Shake } from '@ionic-native/shake';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { DataProvider } from '../providers/data/data';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ChallengeServiceProvider,
-    DataProvider
+    DataProvider,
+    Shake
   ]
 })
 export class AppModule {}

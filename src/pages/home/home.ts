@@ -1,23 +1,32 @@
 import { Component } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import { ToastController, ToastOptions, ModalController, NavController } from 'ionic-angular';
 import { AddChallengePage } from '../add-challenge/add-challenge';
 import { ViewChallengesPage } from '../view-challenges/view-challenges';
 import { ChallengeServiceProvider } from '../../providers/challenge-service/challenge.service';
 import { DataProvider } from '../../providers/data/data';
-
-
+import { Shake } from '@ionic-native/shake';
+import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  shakeEvent$: Subscription;
+  toastOptions: ToastOptions;
   public items = [];
   public currentItem;
   public title;
   public description;
-  constructor(private challenge: ChallengeServiceProvider, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: DataProvider) {
+  constructor(private shake: Shake, private toast:ToastController, private challenge: ChallengeServiceProvider, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: DataProvider) {
 
+    //toastOptions
+
+    this.toastOptions = {
+      message:'Challenge was Added!',
+      duration:2000
+    }
+
+    //dataService
 
     this.dataService.getData().then((challenges) => {
 
@@ -27,7 +36,6 @@ export class HomePage {
 
     })
     .catch((w)=> console.log(w));
-
 
   }
 
@@ -40,12 +48,17 @@ export class HomePage {
          if(item){
            this.saveItem(item);
          }
-
+         this.showToast();
          this.challengeDone();
+
    });
 
    addModal.present();
 
+ }
+
+ showToast(){
+  this.toast.create(this.toastOptions).present();
  }
 
   getRandomChallenge():void {
@@ -65,6 +78,12 @@ export class HomePage {
     };
     this.title = this.currentItem.title;
     this.description = this.currentItem.description;
+
+    this.shakeEvent$ = this.shake.startWatch().subscribe(()=> this.getRandomChallenge());
+  }
+
+  ngOnDestroy(){
+    this.shakeEvent$.unsubscribe();
   }
 
    saveItem(item){
