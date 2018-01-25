@@ -1,13 +1,3 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title color='primary'>
-      Daily Challenges
-    </ion-title>
-    <ion-buttons end>
-  <button ion-button icon-only (click)="addItem()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
-</ion-buttons>
-  </ion-navbar>
-</ion-header>
 
 <ion-content class="content" padding>
 
@@ -19,8 +9,16 @@
     {{description}}
   </div>
   <div class="nextItem">
-    <a href="#" class="biliboard" (click)="getRandomChallenge()"> Change Challenge </a>
     <a href="#" class="biliboard" (click)="viewChallenges()"> Completed Challenges </a>
 
   </div>
+
+  <ion-buttons end>
+<button class = "add-challenge"ion-button icon-only (click)="addItem()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
+</ion-buttons>
+
+<ion-buttons end>
+<button class = "change-challenge"ion-button icon-only (click)="getRandomChallenge()"><ion-icon name="refresh"></ion-icon></button>
+</ion-buttons>
+
 </ion-content>

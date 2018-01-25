@@ -11,13 +11,14 @@ import { ViewChallengesPage } from '../pages/view-challenges/view-challenges';
 import { ChallengeServiceProvider } from '../providers/challenge-service/challenge.service';
 import { DataProvider } from '../providers/data/data';
 import { Shake } from '@ionic-native/shake';
-
+import { IntroPage } from '../pages/intro/intro';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddChallengePage,
-    ViewChallengesPage
+    ViewChallengesPage,
+    IntroPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { Shake } from '@ionic-native/shake';
     MyApp,
     HomePage,
     AddChallengePage,
-    ViewChallengesPage
+    ViewChallengesPage,
+    IntroPage
   ],
   providers: [
     StatusBar,

@@ -1,6 +1,26 @@
 page-home {
   background: black;
 }
+.add-challenge{
+  position: absolute;
+  right:0;
+  transform:translateX(90%);
+}
+
+.add-challenge:hover{
+  transform:translateX(40%);
+}
+
+.change-challenge{
+  position: absolute;
+  left:0;
+  transform:translateX(-90%);
+}
+
+.change-challenge:hover{
+  transform:translateX(-40%);
+}
+
 
 .background, .background .pane, .background .item, .background .item-complex .item-content {
     background-color: yellow;
@@ -42,12 +62,12 @@ page-home {
 
 .biliboard {
 	width: 120px;
-	padding: 12px;
+	padding: 9px;
 	text-align: center;
 	position: relative;
 	background: #fff;
 	color: #333;
-	font: 1rem open, tahoma;
+	font-size: 0.8rem;
 }
 .biliboard:before {
 	content: '';

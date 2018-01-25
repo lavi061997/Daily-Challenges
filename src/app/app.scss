@@ -17,3 +17,17 @@
 $background-ios-color: #fff;
 $background-md-color: #fff;
 $background-wp-color: #fff;
+@font-face{
+  font-family: BalooBhai;
+  src:url('../assets/fonts/BalooBhai.woff2') format('woff2');
+}
+
+@font-face{
+  font-family: open-sans;
+  src:url('../assets/fonts/OpenSans.woff2') format('woff2');
+}
+
+
+*{
+  font-family: BalooBhai;
+}
