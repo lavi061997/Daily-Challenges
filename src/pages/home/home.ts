@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { ToastController, ToastOptions, ModalController, NavController } from 'ionic-angular';
+import { PopoverController, ToastController, ToastOptions, ModalController, NavController } from 'ionic-angular';
 import { AddChallengePage } from '../add-challenge/add-challenge';
 import { ViewChallengesPage } from '../view-challenges/view-challenges';
 import { ChallengeServiceProvider } from '../../providers/challenge-service/challenge.service';
 import { DataProvider } from '../../providers/data/data';
 import { Shake } from '@ionic-native/shake';
 import { Subscription } from 'rxjs/Subscription';
+import { PopoverPage } from '../popover/popover';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -17,7 +18,7 @@ export class HomePage {
   public currentItem;
   public title;
   public description;
-  constructor(private shake: Shake, private toast:ToastController, private challenge: ChallengeServiceProvider, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: DataProvider) {
+  constructor(public popoverCtrl: PopoverController, private shake: Shake, private toast:ToastController, private challenge: ChallengeServiceProvider, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: DataProvider) {
 
     //toastOptions
 
@@ -37,6 +38,13 @@ export class HomePage {
     })
     .catch((w)=> console.log(w));
 
+  }
+
+  optionsPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverPage, {Data: this.items});
+    popover.present({
+      ev: myEvent
+    });
   }
 
  addItem(){
@@ -95,6 +103,7 @@ export class HomePage {
      this.description = "Come back tomorrow for a new Challenge";
    }
    viewChallenges() {
+     console.log(this.items);
     this.navCtrl.push(ViewChallengesPage, {
       items:this.items
     });

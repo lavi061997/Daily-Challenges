@@ -1,5 +1,16 @@
+ <ion-header> <ion-toolbar color="white">
+   <ion-title>Challenges</ion-title>
+   <ion-buttons right>
+     <button ion-button icon-only color="royal" (tap)="optionsPopover($event)">
+       <ion-icon name="more">
 
+       </ion-icon>
+     </button>
+   </ion-buttons>
+ </ion-toolbar>
+</ion-header>
 <ion-content class="content" padding>
+
 
   <h1 class = "challenge">Here's your Daily Challenge</h1>
   <div class="today-challenge">
@@ -8,17 +19,15 @@
   <div class="challenge-description">
     {{description}}
   </div>
-  <div class="nextItem">
-    <a href="#" class="biliboard" (click)="viewChallenges()"> Completed Challenges </a>
 
-  </div>
 
   <ion-buttons end>
 <button class = "add-challenge"ion-button icon-only (click)="addItem()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
 </ion-buttons>
 
 <ion-buttons end>
-<button class = "change-challenge"ion-button icon-only (click)="getRandomChallenge()"><ion-icon name="refresh"></ion-icon></button>
+<button class = "change-challenge"ion-button icon-only (click)="getRandomChallenge()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
 </ion-buttons>
+
 
 </ion-content>

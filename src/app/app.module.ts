@@ -12,13 +12,15 @@ import { ChallengeServiceProvider } from '../providers/challenge-service/challen
 import { DataProvider } from '../providers/data/data';
 import { Shake } from '@ionic-native/shake';
 import { IntroPage } from '../pages/intro/intro';
+import { PopoverPage } from '../pages/popover/popover';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddChallengePage,
     ViewChallengesPage,
-    IntroPage
+    IntroPage,
+    PopoverPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { IntroPage } from '../pages/intro/intro';
     HomePage,
     AddChallengePage,
     ViewChallengesPage,
-    IntroPage
+    IntroPage,
+    PopoverPage
   ],
   providers: [
     StatusBar,
