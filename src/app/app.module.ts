@@ -13,6 +13,7 @@ import { DataProvider } from '../providers/data/data';
 import { Shake } from '@ionic-native/shake';
 import { IntroPage } from '../pages/intro/intro';
 import { PopoverPage } from '../pages/popover/popover';
+import { ParallaxHeader } from '../directives/parallax-header/parallax-header';
 @NgModule({
   declarations: [
     MyApp,
@@ -20,7 +21,8 @@ import { PopoverPage } from '../pages/popover/popover';
     AddChallengePage,
     ViewChallengesPage,
     IntroPage,
-    PopoverPage
+    PopoverPage,
+    ParallaxHeader
   ],
   imports: [
     BrowserModule,

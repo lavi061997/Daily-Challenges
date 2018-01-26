@@ -9,25 +9,27 @@
    </ion-buttons>
  </ion-toolbar>
 </ion-header>
-<ion-content class="content" padding>
 
 
-  <h1 class = "challenge">Here's your Daily Challenge</h1>
-  <div class="today-challenge">
-    {{title}}
-  </div>
-  <div class="challenge-description">
-    {{description}}
-  </div>
+<ion-content fullscreen parallax-header>
 
+<div class="header-image">
+</div>
+<div class="main-content">
+    <h1 class = "challenge">Here's your Daily Challenge</h1>
+    <div class="today-challenge">
+      {{title}}
+    </div>
+    <div class="challenge-description">
+      {{description}}
+    </div>
 
-  <ion-buttons end>
-<button class = "add-challenge"ion-button icon-only (click)="addItem()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
-</ion-buttons>
+      <ion-buttons end right>
+    <button class = "add-challenge"ion-button icon-only (click)="addItem()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
+    </ion-buttons>
 
-<ion-buttons end>
-<button class = "change-challenge"ion-button icon-only (click)="getRandomChallenge()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
-</ion-buttons>
-
-
+    <ion-buttons end left>
+    <button class = "change-challenge"ion-button icon-only (click)="getRandomChallenge()"><ion-icon name="ios-refresh-circle-outline"></ion-icon></button>
+    </ion-buttons>
+</div>
 </ion-content>

@@ -7,6 +7,7 @@ import { DataProvider } from '../../providers/data/data';
 import { Shake } from '@ionic-native/shake';
 import { Subscription } from 'rxjs/Subscription';
 import { PopoverPage } from '../popover/popover';
+import { ParallaxHeader } from '../../directives/parallax-header/parallax-header';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -82,7 +83,7 @@ export class HomePage {
   ionViewDidLoad() {
     this.currentItem = {
       title:'test',
-      description:'loren ipsem'
+      description:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
     };
     this.title = this.currentItem.title;
     this.description = this.currentItem.description;

@@ -1,5 +1,14 @@
 page-home {
   background: black;
+  .header-image {
+    background-image: url('../../assets/imgs/bg-image-1.jpg');
+    height:50vh;
+  }
+
+  .main-content{
+    padding:20px;
+    background-color: white;
+  }
 }
 .add-challenge{
   position: absolute;
