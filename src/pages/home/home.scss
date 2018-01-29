@@ -3,12 +3,27 @@ page-home {
   .header-image {
     background-image: url('../../assets/imgs/bg-image-1.jpg');
     height:50vh;
+    width:100%;
+    top:0;
+    z-index:-20;
   }
-
   .main-content{
-    padding:20px;
+    padding:30px;
     background-color: white;
   }
+
+  .scroll-content{
+    padding-top: 0 !important;
+  }
+
+  ion-header{
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  ion-navbar{
+    opacity: 0.4;
+    box-shadow: 0px 1px 13px 1px rgba(0, 0, 0, 1);  }
+
 }
 .add-challenge{
   position: absolute;

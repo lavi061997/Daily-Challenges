@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content fullscreen parallax-header>
+<ion-content fullscreen parallax-header >
 
 <div class="header-image">
 </div>
@@ -23,7 +23,7 @@
     <div class="challenge-description">
       {{description}}
     </div>
-
+    <div>Registration closes in <span id="time">{{minutes}}{{seconds}}</span> minutes!</div>
       <ion-buttons end right>
     <button class = "add-challenge"ion-button icon-only (click)="addItem()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
     </ion-buttons>

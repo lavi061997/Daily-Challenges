@@ -19,6 +19,12 @@ export class HomePage {
   public currentItem;
   public title;
   public description;
+  isValid = true;
+  public maxTime = 10;
+  start: any;
+  diff: any;
+  minutes:any;
+  seconds: any;
   constructor(public popoverCtrl: PopoverController, private shake: Shake, private toast:ToastController, private challenge: ChallengeServiceProvider, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: DataProvider) {
 
     //toastOptions
@@ -48,7 +54,13 @@ export class HomePage {
     });
   }
 
- addItem(){
+  // timer function
+
+
+
+
+
+  addItem(){
 
    let addModal = this.modalCtrl.create(AddChallengePage,{currentItem: this.currentItem});
 
@@ -66,7 +78,7 @@ export class HomePage {
 
  }
 
- showToast(){
+  showToast(){
   this.toast.create(this.toastOptions).present();
  }
 
