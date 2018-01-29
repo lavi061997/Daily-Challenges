@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewController , NavController, NavParams } from 'ionic-angular';
 import { ViewChallengesPage } from '../view-challenges/view-challenges';
+import { ProfilePage } from '../profile/profile';
 
 /**
  * Generated class for the PopoverPage page.
@@ -23,10 +24,11 @@ export class PopoverPage {
     console.log('ionViewDidLoad PopoverPage');
 
   }
-
+  viewProfile(){
+    this.navCtrl.push(ProfilePage);
+  }
   viewChallenges(){
     let items = this.navParams.data.Data;
-    console.log(items);
     this.navCtrl.push(ViewChallengesPage, {
         items:items
     });

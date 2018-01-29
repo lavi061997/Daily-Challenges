@@ -14,6 +14,8 @@ import { Shake } from '@ionic-native/shake';
 import { IntroPage } from '../pages/intro/intro';
 import { PopoverPage } from '../pages/popover/popover';
 import { ParallaxHeader } from '../directives/parallax-header/parallax-header';
+import { ProfilePage } from '../pages/profile/profile';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -22,7 +24,8 @@ import { ParallaxHeader } from '../directives/parallax-header/parallax-header';
     ViewChallengesPage,
     IntroPage,
     PopoverPage,
-    ParallaxHeader
+    ParallaxHeader,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { ParallaxHeader } from '../directives/parallax-header/parallax-header';
     AddChallengePage,
     ViewChallengesPage,
     IntroPage,
-    PopoverPage
+    PopoverPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
