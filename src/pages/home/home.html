@@ -23,7 +23,9 @@
     <div class="challenge-description">
       {{description}}
     </div>
-    <div>Registration closes in <span id="time">{{minutes}}{{seconds}}</span> minutes!</div>
+    <h1>
+          {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}}
+      </h1>
       <ion-buttons end right>
     <button class = "add-challenge"ion-button icon-only (click)="addItem()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
     </ion-buttons>

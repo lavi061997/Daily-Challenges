@@ -4,28 +4,28 @@ import { AddChallengePage } from '../add-challenge/add-challenge';
 import { ViewChallengesPage } from '../view-challenges/view-challenges';
 import { ChallengeServiceProvider } from '../../providers/challenge-service/challenge.service';
 import { DataProvider } from '../../providers/data/data';
-import { Shake } from '@ionic-native/shake';
-import { Subscription } from 'rxjs/Subscription';
 import { PopoverPage } from '../popover/popover';
 import { ParallaxHeader } from '../../directives/parallax-header/parallax-header';
+import { Observable, Subscription } from 'rxjs/Rx';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  shakeEvent$: Subscription;
+  sub: Subscription;
   toastOptions: ToastOptions;
   public items = [];
   public currentItem;
   public title;
   public description;
   isValid = true;
-  public maxTime = 10;
-  start: any;
-  diff: any;
-  minutes:any;
-  seconds: any;
-  constructor(public popoverCtrl: PopoverController, private shake: Shake, private toast:ToastController, private challenge: ChallengeServiceProvider, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: DataProvider) {
+  ticks = 0;
+
+  minutesDisplay: number = 0;
+  hoursDisplay: number = 0;
+  secondsDisplay: number = 0;
+
+  constructor(public popoverCtrl: PopoverController, private toast:ToastController, private challenge: ChallengeServiceProvider, public navCtrl: NavController, public modalCtrl: ModalController, public dataService: DataProvider) {
 
     //toastOptions
 
@@ -56,7 +56,44 @@ export class HomePage {
 
   // timer function
 
+  ngOnInit() {
+}
 
+    private startTimer() {
+      console.log('start');
+        let timer = Observable.timer(1, 1000);
+        this.sub = timer.subscribe(
+            t => {
+                this.ticks = t;
+
+                this.secondsDisplay = this.getSeconds(this.ticks);
+                this.minutesDisplay = this.getMinutes(this.ticks);
+                this.hoursDisplay = this.getHours(this.ticks);
+                if(this.secondsDisplay == 10){
+                  this.getRandomChallenge();
+                  this.secondsDisplay = 0;
+                  this.minutesDisplay = 0;
+                  this.hoursDisplay = 0;
+                  this.sub.unsubscribe();
+                }
+            }
+        );
+    }
+  private getSeconds(ticks: number) {
+      return this.pad(ticks % 60);
+}
+
+  private getMinutes(ticks: number) {
+       return this.pad((Math.floor(ticks / 60)) % 60);
+  }
+
+  private getHours(ticks: number) {
+      return this.pad(Math.floor((ticks / 60) / 60));
+  }
+
+  private pad(digit: any) {
+      return digit <= 9 ? '0' + digit : digit;
+  }
 
 
 
@@ -75,6 +112,8 @@ export class HomePage {
    });
 
    addModal.present();
+
+   this.startTimer();
 
  }
 
@@ -99,14 +138,7 @@ export class HomePage {
     };
     this.title = this.currentItem.title;
     this.description = this.currentItem.description;
-
-    this.shakeEvent$ = this.shake.startWatch().subscribe(()=> this.getRandomChallenge());
   }
-
-  ngOnDestroy(){
-    this.shakeEvent$.unsubscribe();
-  }
-
    saveItem(item){
      this.items.push(item);
      this.dataService.save(this.items);
