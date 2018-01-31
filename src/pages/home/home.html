@@ -23,14 +23,17 @@
     <div class="challenge-description">
       {{description}}
     </div>
-    <h1>
-          {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}}
-      </h1>
-      <ion-buttons end right>
+    <div class="timer" *ngIf="!isValid">
+      <h1>
+            {{hoursDisplay ? hoursDisplay : '00'}} : {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}}
+        </h1>
+    </div>
+
+      <ion-buttons end right *ngIf="isValid">
     <button class = "add-challenge"ion-button icon-only (click)="addItem()"><ion-icon name="checkmark-circle-outline"></ion-icon></button>
     </ion-buttons>
 
-    <ion-buttons end left>
+    <ion-buttons end left *ngIf="isValid">
     <button class = "change-challenge"ion-button icon-only (click)="getRandomChallenge()"><ion-icon name="ios-refresh-circle-outline"></ion-icon></button>
     </ion-buttons>
 </div>

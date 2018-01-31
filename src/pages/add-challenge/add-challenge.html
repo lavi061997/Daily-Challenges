@@ -15,8 +15,12 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
-{{title}}
-{{description}}
+<ion-content fullscreen [attr.noScroll]="shouldScroll">
+  <div class="title">
+    {{title}}<br>
+  </div>
+  <div class="description">
+    {{description}}
+  </div>
   <button full ion-button color="primary" (click)="saveItem()">Save</button>
 </ion-content>

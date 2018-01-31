@@ -1,3 +1,22 @@
 page-add-challenge {
+  .title{
 
+    padding:10px 10px 10px 10px;
+    text-transform: uppercase;
+  }
+
+  .description{
+
+    padding: 10px 10px 10px 10px;
+    text-transform: capitalize;
+  }
+}
+[noScroll] {
+  overflow: hidden;
+}
+::-webkit-scrollbar{
+display:none;
+}
+scroll-content {
+  overflow-y: auto;
 }

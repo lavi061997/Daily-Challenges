@@ -60,6 +60,7 @@ export class HomePage {
 }
 
     private startTimer() {
+      this.isValid = !this.isValid;
       console.log('start');
         let timer = Observable.timer(1, 1000);
         this.sub = timer.subscribe(
@@ -75,6 +76,7 @@ export class HomePage {
                   this.minutesDisplay = 0;
                   this.hoursDisplay = 0;
                   this.sub.unsubscribe();
+                  this.isValid = !this.isValid;
                 }
             }
         );
