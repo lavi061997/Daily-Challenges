@@ -14,7 +14,11 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
+  public lengthItems;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  this.lengthItems  = this.navParams.get("lengthItems");
   }
 
   ionViewDidLoad() {

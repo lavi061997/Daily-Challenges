@@ -20,6 +20,7 @@ export class HomePage {
   public description;
   isValid = true;
   ticks = 0;
+  public lengthItems = items.length;
 
   minutesDisplay: number = 0;
   hoursDisplay: number = 0;
@@ -144,6 +145,7 @@ export class HomePage {
    saveItem(item){
      this.items.push(item);
      this.dataService.save(this.items);
+     this.lengthItems = this.items.length;
    }
    challengeDone(): void{
      this.title = "Congrats to you for completing this challenge";

@@ -25,7 +25,12 @@ export class PopoverPage {
 
   }
   viewProfile(){
-    this.navCtrl.push(ProfilePage);
+    let items = this.navParams.data.Data;
+    let lengthItems = this.navParams.data.Data.length;
+    this.navCtrl.push(ProfilePage, {
+      items: items,
+      lengthItems:lengthItems
+    });
   }
   viewChallenges(){
     let items = this.navParams.data.Data;
