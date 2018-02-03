@@ -16,15 +16,17 @@
 <div class="header-image">
 </div>
 <div class="main-content">
-    <h1 class = "challenge">Here's your Daily Challenge</h1>
+    <div class="title-page">
+          <h1 class = "challenge">Here's your Daily Challenge</h1>
+    </div>
     <div class="today-challenge">
       {{title}}
     </div>
     <div class="challenge-description">
       {{description}}
     </div>
-    <div class="timer" *ngIf="!isValid">
-      <h1>
+    <div class="timer" style="text-align:center;" *ngIf="!isValid">
+      <h1 style="color:red; ">
         Timer
       </h1>
       <br>

@@ -20,7 +20,7 @@ export class HomePage {
   public description;
   isValid = true;
   ticks = 0;
-  public lengthItems = items.length;
+  public lengthItems = this.items.length;
 
   minutesDisplay: number = 0;
   hoursDisplay: number = 0;

@@ -8,6 +8,20 @@ page-home {
     z-index:-20;
   }
 
+  .title-page{
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
+    width:100%;
+    text-align: center;
+    height:100px;
+    background:#FFF;
+    margin:40px auto;
+    border: 1px solid #4C3C1B;
+    padding: 5px;
+    background-color: #EFEECB;
+  }
+
   .timer{
     box-shadow: 0 8px 6px -6px black;
     padding-top: 10px;
@@ -83,10 +97,27 @@ page-home {
 }
 
 .today-challenge{
-  font-size:1rem;
+  font-size:1.5rem;
   width:100%;
-  margin: auto;
+  margin:0px auto;
   background: yellow;
+  padding: 10px;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 5px;
+  border-top-style:double;
+border-bottom-style:double;
+padding-top:5px;
+padding-bottom:5px;
+border-top-color:red;
+border-bottom-color:red;
+border-top-width:8px;
+border-bottom-width:8px;
+}
+
+.challenge-description{
+  text-transform: capitalize;
+  display: inline-block;
   padding: 10px;
 }
 

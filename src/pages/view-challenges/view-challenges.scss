@@ -1,10 +1,12 @@
 page-view-challenges {
   .box{
-    padding-top: 10px;
+    padding: 10px;
     position: relative;
-    padding-bottom: 10px;
-    box-shadow: 0 8px 6px -6px black;
-
+    margin: 10px;
+    border: solid 1px #CCC;
+-moz-box-shadow: 5px 5px 0px #999;
+-webkit-box-shadow: 5px 5px 0px #999;
+    box-shadow: 5px 5px 0px #999;
   }
 
   .detail{
